@@ -70,26 +70,20 @@ model CoverLetter {
 }
 
 // Combined Industry Trends and Salary Insights
+
+
 model IndustryInsight {
   id            String    @id @default(cuid())
-  industry      String    @unique  // The industry this data belongs to (e.g., "tech-software-development")
+  industry      String    @unique 
   
-  // Users in this industry
   users         User[]
   
-  // Salary data
-  salaryRanges  Json[]    // Array of { role: string, min: float, max: float, median: float, location: string? }
-  
-  // Industry trends
+  salaryRanges  Json[]   
   growthRate    Float     // Industry growth rate
   demandLevel   String    // "High", "Medium", "Low"
   topSkills     String[]  // Most in-demand skills
-  
-  // Market conditions
   marketOutlook String    // "Positive", "Neutral", "Negative"
   keyTrends     String[]  // Array of current industry trends
-  
-  // Learning suggestions
   recommendedSkills String[]  // Skills recommended for the industry
   
   lastUpdated   DateTime  @default(now())
