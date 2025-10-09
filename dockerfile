@@ -38,7 +38,7 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/prisma ./prisma
-COPY --from=builder /app/api/ingest ./ingest  # ingest server folder
+COPY --from=builder /app/api/inngest ./inngest  # ingest server folder
 
 
 # Expose Next.js port
@@ -48,7 +48,7 @@ EXPOSE 8288
 RUN npm install -g concurrently
 
 # Run the production server
-CMD ["concurrently", "\"npm run start\"", "\"node ingest/index.js\""]
+CMD ["concurrently", "\"npm run start\"", "\"node inngest/index.js\""]
 
 # CMD ["npm", "run", "dev"]
 # -----------------------------
