@@ -2,12 +2,10 @@ version: "3.9"
 
 services:
   web:
-    container_name: ai-career-coach
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: "robinvats/ai-career-coach:latest"
     ports:
       - "3000:3000"
       - "8288:8288"
     env_file:
       - .env
+   
